@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Linux服务器基本配置 | 夏末将至 | 技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="linux,ubuntu,服务器">
+  <meta name="description" content="linux服务器配置
+写在前面：该篇博客为个人记录为主，若有错漏，请留言提出。
+
+关于Linux服务器我们搭建博客或者搭建自己的网站或服务，都需要服务器的支持，然而服务器一般都不是使用我们所熟悉的windows系统（你也可以使用windows server系统），这篇博客以ubuntu系统为例说一下服务器的基本配置，其他linux的发行版也类似，只是稍有不同。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux服务器基本配置">
+<meta property="og:url" content="http://weiyf.cn/2016/04/29/Linux服务器基本配置/index.html">
+<meta property="og:site_name" content="夏末将至">
+<meta property="og:description" content="linux服务器配置
+写在前面：该篇博客为个人记录为主，若有错漏，请留言提出。
+
+关于Linux服务器我们搭建博客或者搭建自己的网站或服务，都需要服务器的支持，然而服务器一般都不是使用我们所熟悉的windows系统（你也可以使用windows server系统），这篇博客以ubuntu系统为例说一下服务器的基本配置，其他linux的发行版也类似，只是稍有不同。">
+<meta property="og:updated_time" content="2016-04-29T10:04:54.132Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux服务器基本配置">
+<meta name="twitter:description" content="linux服务器配置
+写在前面：该篇博客为个人记录为主，若有错漏，请留言提出。
+
+关于Linux服务器我们搭建博客或者搭建自己的网站或服务，都需要服务器的支持，然而服务器一般都不是使用我们所熟悉的windows系统（你也可以使用windows server系统），这篇博客以ubuntu系统为例说一下服务器的基本配置，其他linux的发行版也类似，只是稍有不同。">
+  
+    <link rel="alternative" href="/atom.xml" title="夏末将至" type="application/atom+xml">
+  
+  <meta name="summary" content="&lt;h1 id=&quot;linux服务器配置&quot;&gt;&lt;a href=&quot;#linux服务器配置&quot; class=&quot;headerlink&quot; title=&quot;linux服务器配置&quot;&gt;&lt;/a&gt;linux服务器配置&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;写在前面：&lt;br&gt;该篇博客为个人记录为主，若有错漏，请留言提出。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;关于Linux服务器&quot;&gt;&lt;a href=&quot;#关于Linux服务器&quot; class=&quot;headerlink&quot; title=&quot;关于Linux服务器&quot;&gt;&lt;/a&gt;关于Linux服务器&lt;/h2&gt;&lt;p&gt;我们搭建博客或者搭建自己的网站或服务，都需要服务器的支持，然而服务器一般都不是使用我们所熟悉的windows系统（你也可以使用windows server系统），这篇博客以ubuntu系统为例说一下服务器的基本配置，其他linux的发行版也类似，只是稍有不同。&lt;/p&gt;">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner">
+  <a href="javascript:;" class="header-icon waves-circle-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/logo.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">weiyf</h5>
+        <a href="mailto:undefined" title="admin@weiyf.cn" class="mail">admin@weiyf.cn</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav">
+    
+        <li class="waves-block">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            档案
+          </a>
+        </li>
+    
+        <li class="waves-block">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            标签
+          </a>
+        </li>
+    
+        <li class="waves-block">
+          <a href="/resume"  >
+            <i class="icon icon-lg icon-book"></i>
+            简历
+          </a>
+        </li>
+    
+        <li class="waves-block">
+          <a href="/"  >
+            <i class="icon icon-lg icon-link"></i>
+            友链
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>夏末将至 &copy; 2016</p>
+  <span id="busuanzi_container_site_pv">
+    您是本站第<span id="busuanzi_value_site_pv"></span>位访客
+</span>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-circle-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Linux服务器基本配置</div>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">Linux服务器基本配置</h1>
+    <h5 class="subtitle">2016-04-29</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="post-Linux服务器基本配置" class="article article-type-post" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务器/">服务器</a></li></ul>
+</div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+          <div " class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons" style="text-align: center;">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    <!--   <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>  -->
+    </ul>
+ </div>
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#linux服务器配置"><span class="post-toc-text">linux服务器配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关于Linux服务器"><span class="post-toc-text">关于Linux服务器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#root登陆"><span class="post-toc-text">root登陆</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#新建用户"><span class="post-toc-text">新建用户</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置ssh，禁止密码登陆和root用户登陆"><span class="post-toc-text">配置ssh，禁止密码登陆和root用户登陆</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#证书登录的步骤说明"><span class="post-toc-text">证书登录的步骤说明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#客户端生成私钥和公钥"><span class="post-toc-text">客户端生成私钥和公钥</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置服务端的ssh"><span class="post-toc-text">配置服务端的ssh</span></a></li></ol></li></ol></li></ol>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><h1 id="linux服务器配置"><a href="#linux服务器配置" class="headerlink" title="linux服务器配置"></a>linux服务器配置</h1><blockquote>
+<p>写在前面：<br>该篇博客为个人记录为主，若有错漏，请留言提出。</p>
+</blockquote>
+<h2 id="关于Linux服务器"><a href="#关于Linux服务器" class="headerlink" title="关于Linux服务器"></a>关于Linux服务器</h2><p>我们搭建博客或者搭建自己的网站或服务，都需要服务器的支持，然而服务器一般都不是使用我们所熟悉的windows系统（你也可以使用windows server系统），这篇博客以ubuntu系统为例说一下服务器的基本配置，其他linux的发行版也类似，只是稍有不同。</p>
+<a id="more"></a>
+<h2 id="root登陆"><a href="#root登陆" class="headerlink" title="root登陆"></a>root登陆</h2><p>首先使用root用户登陆远程主机（假设服务器地址为128.209.199.242）。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@128.209.199.242</span><br></pre></td></tr></table></figure></p>
+<p>如果你是初次登陆， 命令行会出现警告， 说这是一个新地址， 存在安全风险。输入yes表示接受。如果登陆之前你的远程服务器有设置了密码，就输入你设置的密码进行登陆， 如果没有回车就能顺利登入远程主机。</p>
+<p>紧接着， 修改root用户的用户密码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure></p>
+<p>输入你要设置的新的root用户密码</p>
+<h2 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a>新建用户</h2><p>首先， 添加一个新的用户组（假设该用户组为admin）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addgroup admin</span><br></pre></td></tr></table></figure></p>
+<p>然后添加一个新用户（假设该用户为blog)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd <span class="_">-d</span> /home/blog <span class="_">-s</span> /bin/bash -m blog</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>上面的命令中， ==-d==表示指定用户的主目录， ==-s==表示指定用户的shell， ==-m==表示如果该目录不存在， 则创建该目录。</p>
+</blockquote>
+<p>接着， 为新用户blog创建新用户密码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd blog</span><br></pre></td></tr></table></figure></p>
+<p>将新用户blog添加到刚新建的用户组admin<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod <span class="_">-a</span> -G admin blog</span><br></pre></td></tr></table></figure></p>
+<p>接着， 为新用户设定sudo权限<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">visudo</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>这个命令会打开sudo设置文件==/etc/sudoers==, 找到下面这一行</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root	ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure>
+<p>在这行下面，在添加一行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root	ALL=(ALL:ALL) ALL</span><br><span class="line">blog	ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure></p>
+<p>如果你想sudo的时候不需要输入密码， 这改成下面的形式， 但是处于安全考虑， 还是要强制要求输入密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root	ALL=(ALL:ALL) ALL</span><br><span class="line">blog	ALL=(ALL) NOPASSWD: ALL</span><br></pre></td></tr></table></figure></p>
+<p>然后退出之前登陆的root用户，用新用户的身份登陆， 看是否能登陆成功，登陆成功则新增用户配置正常，如果不能登陆请重复以上步骤。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br><span class="line">ssh blog@128.209.199.242</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置ssh，禁止密码登陆和root用户登陆"><a href="#配置ssh，禁止密码登陆和root用户登陆" class="headerlink" title="配置ssh，禁止密码登陆和root用户登陆"></a>配置ssh，禁止密码登陆和root用户登陆</h2><p>ssh有密码登陆和证书登陆两种形式， 初学者一般都喜欢使用密码登陆，甚至是使用root用户直接登陆，而且密码相当简单。但是在实际工作中，尤其是在公司中，基本上是证书登陆的，因为在外网的机器用密码登陆是很容易收到攻击的，所以在生产环境中都是使用证书登录的。</p>
+<h3 id="证书登录的步骤说明"><a href="#证书登录的步骤说明" class="headerlink" title="证书登录的步骤说明"></a>证书登录的步骤说明</h3><ol>
+<li>客户端生成证书， 包括私钥和公钥， 私钥是放在客户端，公钥放在服务器。为了安全，防止黑客拷贝，一般我们在客户端生成私钥的时候毒药设置一个密码。</li>
+<li>把客户端生成的公钥上传到服务器上， 添加到用户目录下的.ssh文件夹下的指定文件中， 这就完成了ssh证书登陆的配置了。如果其他客户端也想通过私钥ssh登陆这个服务器，同理上传公钥到服务器</li>
+</ol>
+<h3 id="客户端生成私钥和公钥"><a href="#客户端生成私钥和公钥" class="headerlink" title="客户端生成私钥和公钥"></a>客户端生成私钥和公钥</h3><p>查看用户目录下.ssh下有没有存在私钥和密钥，如果没有，使用如下命令生成<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure></p>
+<p>假设用户是admin，则在home目录下的.ssh/下生成私钥和密钥（windows在用户目录下）</p>
+<h3 id="配置服务端的ssh"><a href="#配置服务端的ssh" class="headerlink" title="配置服务端的ssh"></a>配置服务端的ssh</h3><p>用vim编辑==/etc/ssh/sshd_config<br>```</p>
+</div>
+
+            
+
+
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Linux服务器基本配置" data-title="Linux服务器基本配置" data-url="http://weiyf.cn/2016/04/29/Linux服务器基本配置/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"xiamojiangzhi"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-circle-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "Linux服务器基本配置",
+    pic: "/img/logo.jpg",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://weiyf.cn/2016/04/29/Linux服务器基本配置/index.html"
+};
+</script>
+<div " class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons" style="text-align: center;">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    <!--   <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>  -->
+    </ul>
+ </div>
+
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+<script type="text/javascript">
+var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_1258691893' style='display:none' %3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1258691893%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+
+
+
+</body>
+</html>
