@@ -6,7 +6,7 @@
   <title>Linux服务器基本配置 | 夏末将至 | 技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="linux,ubuntu,服务器">
+  <meta name="keywords" content="linux,ubuntu,服务器,ssh">
   <meta name="description" content="linux服务器配置
 写在前面：该篇博客为个人记录为主，若有错漏，请留言提出。
 
@@ -19,7 +19,7 @@
 写在前面：该篇博客为个人记录为主，若有错漏，请留言提出。
 
 关于Linux服务器我们搭建博客或者搭建自己的网站或服务，都需要服务器的支持，然而服务器一般都不是使用我们所熟悉的windows系统（你也可以使用windows server系统），这篇博客以ubuntu系统为例说一下服务器的基本配置，其他linux的发行版也类似，只是稍有不同。">
-<meta property="og:updated_time" content="2016-04-29T10:04:54.132Z">
+<meta property="og:updated_time" content="2016-04-30T09:33:20.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux服务器基本配置">
 <meta name="twitter:description" content="linux服务器配置
@@ -137,7 +137,7 @@
     
       <div class="post-meat flex-row">
         <div class="flex-col">
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务器/">服务器</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/">ssh</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务器/">服务器</a></li></ul>
 </div>
       </div>
       <div class="post-body">
@@ -185,7 +185,7 @@
 
           
           <nav class="post-toc-wrap" id="post-toc">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#linux服务器配置"><span class="post-toc-text">linux服务器配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关于Linux服务器"><span class="post-toc-text">关于Linux服务器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#root登陆"><span class="post-toc-text">root登陆</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#新建用户"><span class="post-toc-text">新建用户</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置ssh，禁止密码登陆和root用户登陆"><span class="post-toc-text">配置ssh，禁止密码登陆和root用户登陆</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#证书登录的步骤说明"><span class="post-toc-text">证书登录的步骤说明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#客户端生成私钥和公钥"><span class="post-toc-text">客户端生成私钥和公钥</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置服务端的ssh"><span class="post-toc-text">配置服务端的ssh</span></a></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#linux服务器配置"><span class="post-toc-text">linux服务器配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关于Linux服务器"><span class="post-toc-text">关于Linux服务器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解析主机ip（非必须）"><span class="post-toc-text">解析主机ip（非必须）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#root登录"><span class="post-toc-text">root登录</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#新建用户"><span class="post-toc-text">新建用户</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置ssh，禁止密码登录和root用户登录"><span class="post-toc-text">配置ssh，禁止密码登录和root用户登录</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#证书登录的步骤说明"><span class="post-toc-text">证书登录的步骤说明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#客户端生成私钥和公钥"><span class="post-toc-text">客户端生成私钥和公钥</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置服务端的ssh"><span class="post-toc-text">配置服务端的ssh</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#快速ssh登录"><span class="post-toc-text">快速ssh登录</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结"><span class="post-toc-text">总结</span></a></li></ol></li></ol>
           </nav>
           
         </aside>
@@ -197,33 +197,55 @@
 </blockquote>
 <h2 id="关于Linux服务器"><a href="#关于Linux服务器" class="headerlink" title="关于Linux服务器"></a>关于Linux服务器</h2><p>我们搭建博客或者搭建自己的网站或服务，都需要服务器的支持，然而服务器一般都不是使用我们所熟悉的windows系统（你也可以使用windows server系统），这篇博客以ubuntu系统为例说一下服务器的基本配置，其他linux的发行版也类似，只是稍有不同。</p>
 <a id="more"></a>
-<h2 id="root登陆"><a href="#root登陆" class="headerlink" title="root登陆"></a>root登陆</h2><p>首先使用root用户登陆远程主机（假设服务器地址为128.209.199.242）。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@128.209.199.242</span><br></pre></td></tr></table></figure></p>
-<p>如果你是初次登陆， 命令行会出现警告， 说这是一个新地址， 存在安全风险。输入yes表示接受。如果登陆之前你的远程服务器有设置了密码，就输入你设置的密码进行登陆， 如果没有回车就能顺利登入远程主机。</p>
-<p>紧接着， 修改root用户的用户密码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure></p>
-<p>输入你要设置的新的root用户密码</p>
-<h2 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a>新建用户</h2><p>首先， 添加一个新的用户组（假设该用户组为admin）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addgroup admin</span><br></pre></td></tr></table></figure></p>
-<p>然后添加一个新用户（假设该用户为blog)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd <span class="_">-d</span> /home/blog <span class="_">-s</span> /bin/bash -m blog</span><br></pre></td></tr></table></figure></p>
+<h2 id="解析主机ip（非必须）"><a href="#解析主机ip（非必须）" class="headerlink" title="解析主机ip（非必须）"></a>解析主机ip（非必须）</h2><p>有没有觉得你的服务器主机的ip特别难记，每次都要去翻才找到主机的ip，你可以将你的主机ip解析到一个你认为好记的域名或者子域名（如果你拥有域名的话）<br>如果你拥有域名，可以将你的主机ip解析到这个域名的子域名（例如：cloud.你的域名），这样你就可以用你解析域名地址代替难记的主机ip。</p>
 <blockquote>
-<p>上面的命令中， ==-d==表示指定用户的主目录， ==-s==表示指定用户的shell， ==-m==表示如果该目录不存在， 则创建该目录。</p>
+<p>解析域名的方法不再累赘</p>
 </blockquote>
-<p>接着， 为新用户blog创建新用户密码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd blog</span><br></pre></td></tr></table></figure></p>
-<p>将新用户blog添加到刚新建的用户组admin<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod <span class="_">-a</span> -G admin blog</span><br></pre></td></tr></table></figure></p>
+<h2 id="root登录"><a href="#root登录" class="headerlink" title="root登录"></a>root登录</h2><p>首先使用root用户登录远程主机。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@主机ip或域名</span><br></pre></td></tr></table></figure></p>
+<p>如果你是初次登录， 命令行会出现警告， 说这是一个新地址， 存在安全风险。输入yes表示接受。如果登录之前你的远程服务器有设置了密码，就输入你设置的密码进行登录， 如果没有回车就能顺利登入远程主机。</p>
+<p>紧接着， 修改root用户的用户密码。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure></p>
+<p>输入你要设置的新的root用户密码</p>
+<h2 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a>新建用户</h2><p>首先， 添加一个新的用户组。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupadd 用户组</span><br></pre></td></tr></table></figure></p>
+<p>然后添加一个新用户<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd <span class="_">-d</span> /home/新用户目录 <span class="_">-s</span> /bin/bash -m 新用户</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>上面的命令中， -d表示指定用户的主目录， -s表示指定用户的shell， -m表示如果该目录不存在， 则创建该目录。</p>
+</blockquote>
+<p>接着， 为新用户创建新用户密码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd 新用户</span><br></pre></td></tr></table></figure></p>
+<p>将新用户添加到刚新建的用户组<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod <span class="_">-a</span> -G 用户组 新用户</span><br></pre></td></tr></table></figure></p>
 <p>接着， 为新用户设定sudo权限<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">visudo</span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p>这个命令会打开sudo设置文件==/etc/sudoers==, 找到下面这一行</p>
+<p>这个命令会打开sudo设置文件/etc/sudoers, 找到下面这一行</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root	ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure>
-<p>在这行下面，在添加一行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root	ALL=(ALL:ALL) ALL</span><br><span class="line">blog	ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure></p>
-<p>如果你想sudo的时候不需要输入密码， 这改成下面的形式， 但是处于安全考虑， 还是要强制要求输入密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root	ALL=(ALL:ALL) ALL</span><br><span class="line">blog	ALL=(ALL) NOPASSWD: ALL</span><br></pre></td></tr></table></figure></p>
-<p>然后退出之前登陆的root用户，用新用户的身份登陆， 看是否能登陆成功，登陆成功则新增用户配置正常，如果不能登陆请重复以上步骤。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br><span class="line">ssh blog@128.209.199.242</span><br></pre></td></tr></table></figure></p>
-<h2 id="配置ssh，禁止密码登陆和root用户登陆"><a href="#配置ssh，禁止密码登陆和root用户登陆" class="headerlink" title="配置ssh，禁止密码登陆和root用户登陆"></a>配置ssh，禁止密码登陆和root用户登陆</h2><p>ssh有密码登陆和证书登陆两种形式， 初学者一般都喜欢使用密码登陆，甚至是使用root用户直接登陆，而且密码相当简单。但是在实际工作中，尤其是在公司中，基本上是证书登陆的，因为在外网的机器用密码登陆是很容易收到攻击的，所以在生产环境中都是使用证书登录的。</p>
+<p>在这行下面，在添加一行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root	ALL=(ALL:ALL) ALL</span><br><span class="line">新用户	ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure></p>
+<p>如果你想sudo的时候不需要输入密码， 这改成下面的形式， 但是处于安全考虑， 还是要强制要求输入密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root	ALL=(ALL:ALL) ALL</span><br><span class="line">新用户	ALL=(ALL) NOPASSWD: ALL</span><br></pre></td></tr></table></figure></p>
+<p>然后退出之前登录的root用户，用新用户的身份登录， 看是否能登录成功，登录成功则新增用户配置正常，如果不能登录请重复以上步骤。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br><span class="line">ssh 新用户@主机ip或域名</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置ssh，禁止密码登录和root用户登录"><a href="#配置ssh，禁止密码登录和root用户登录" class="headerlink" title="配置ssh，禁止密码登录和root用户登录"></a>配置ssh，禁止密码登录和root用户登录</h2><p>ssh有密码登录和证书登录两种形式， 初学者一般都喜欢使用密码登录，甚至是使用root用户直接登录，而且密码相当简单。但是在实际工作中，尤其是在公司中，基本上是证书登录的，因为在外网的机器用密码登录是很容易收到攻击的，所以在生产环境中都是使用证书登录的。</p>
 <h3 id="证书登录的步骤说明"><a href="#证书登录的步骤说明" class="headerlink" title="证书登录的步骤说明"></a>证书登录的步骤说明</h3><ol>
-<li>客户端生成证书， 包括私钥和公钥， 私钥是放在客户端，公钥放在服务器。为了安全，防止黑客拷贝，一般我们在客户端生成私钥的时候毒药设置一个密码。</li>
-<li>把客户端生成的公钥上传到服务器上， 添加到用户目录下的.ssh文件夹下的指定文件中， 这就完成了ssh证书登陆的配置了。如果其他客户端也想通过私钥ssh登陆这个服务器，同理上传公钥到服务器</li>
+<li>客户端生成证书， 包括私钥和公钥， 私钥是放在客户端    ，公钥放在服务器。为了安全，防止黑客拷贝，一般我们在客户端生成私钥的时候毒药设置一个密码。</li>
+<li>把客户端生成的公钥上传到服务器上， 添加到用户目录下的.ssh文件夹下的指定文件中， 这就完成了ssh证书登录的配置了。如果其他客户端也想通过私钥ssh登录这个服务器，同理上传公钥到服务器</li>
 </ol>
-<h3 id="客户端生成私钥和公钥"><a href="#客户端生成私钥和公钥" class="headerlink" title="客户端生成私钥和公钥"></a>客户端生成私钥和公钥</h3><p>查看用户目录下.ssh下有没有存在私钥和密钥，如果没有，使用如下命令生成<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure></p>
-<p>假设用户是admin，则在home目录下的.ssh/下生成私钥和密钥（windows在用户目录下）</p>
-<h3 id="配置服务端的ssh"><a href="#配置服务端的ssh" class="headerlink" title="配置服务端的ssh"></a>配置服务端的ssh</h3><p>用vim编辑==/etc/ssh/sshd_config<br>```</p>
+<h3 id="客户端生成私钥和公钥"><a href="#客户端生成私钥和公钥" class="headerlink" title="客户端生成私钥和公钥"></a>客户端生成私钥和公钥</h3><p>查看用户目录下.ssh下有没有存在私钥和公钥，如果没有，使用如下命令生成<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure></p>
+<p>假设用户是admin，则在home目录下的.ssh/下生成私钥和公钥（windows在用户目录下）</p>
+<h3 id="配置服务端的ssh"><a href="#配置服务端的ssh" class="headerlink" title="配置服务端的ssh"></a>配置服务端的ssh</h3><p>用vim编辑/etc/ssh/sshd_config<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 禁止root用户登录</span><br><span class="line">PermiRootLogin no</span><br><span class="line"></span><br><span class="line"># 禁用密码登录</span><br><span class="line">PasswordAuthentiation no</span><br></pre></td></tr></table></figure></p>
+<p>服务器的ssh已经基本配置完毕，现在需要我们将客户端生成的公钥上传到服务器上， 并把公钥添加到authorized_keys<br>在客户端执行以下命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp ~/.ssh/id_rsa.pub 新用户@128.209.199.242:~</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>这句命令的意思是上传客户端的公钥到服务器的用户目录下</p>
+</blockquote>
+<p>然后在服务器执行命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>这句命令的意思是将上传的公钥追加到authorized_keys文件上， 如果没有这文件目录，请自行创建</p>
+</blockquote>
+<p>重启ssh服务器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/ssh restart</span><br></pre></td></tr></table></figure></p>
+<p>至此， ssh的配置已经基本完成了， 现在你可以使用ssh命令使用新用户登录服务器了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -i ~/.ssh/id_rsa 新用户@128.209.199.242</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>指定私钥进行ssh链接</p>
+</blockquote>
+<p>每次ssh连接都要指定私钥的路径是不是觉得很麻烦， 所以我们可以把私钥的路径加入我们客户端的默认配置里面<br>修改/etc/ssh/ssh_config<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 系统已经默认将id_rsa私钥的路劲加入</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br><span class="line"># 其他私钥如法炮制</span><br><span class="line">IdentityFile ~/.ssh/其他私钥</span><br></pre></td></tr></table></figure></p>
+<p>这样你就可以不用指定私钥的路径进行ssh连接了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh 新用户@128.209.199.242</span><br></pre></td></tr></table></figure></p>
+<h3 id="快速ssh登录"><a href="#快速ssh登录" class="headerlink" title="快速ssh登录"></a>快速ssh登录</h3><p>每次ssh连接都要敲这么长的命令，我们可以将这些参数都配置成一个配置文件<br>在本机的～/.ssh文件夹下创建config文件，内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host hostName</span><br><span class="line">HostName 128.209.199.242</span><br><span class="line">User 新用户</span><br><span class="line">port 22</span><br></pre></td></tr></table></figure></p>
+<p>再开启一个shell窗口，测试配置的ssh能否正常登录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh hostName</span><br></pre></td></tr></table></figure></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文记录了服务器的基本配置，这只是对用户管理进行了配置，服务器的配置还有其他方面例如防火墙， 环境的配置等。</p>
 </div>
 
             
