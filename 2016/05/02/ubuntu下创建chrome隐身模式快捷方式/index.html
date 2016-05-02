@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ubuntu下创建chrome隐身模式快捷方式 | 夏末将至 | 技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="ubuntu,chrome,隐身模式,快捷方式,缓存">
+  <meta name="description" content="写在前面：本文以个人记录为主， 如有错漏， 请留言指出
+
+为什么需要隐身模式
+你懂的（坏笑）
+众所周知， 浏览器是有缓存的， 有时候缓存是一个好东西/usr/share/applications/，但是在一些特殊情况下，例如你发现你修改的东西怎么刷新都不生效，那么就有可能是浏览器缓存导致的，每次都要去浏览器设置清除浏览器缓存是一件多么痛苦的事情。当你为了调试而清除了缓存，当你想要翻你的浏览记录的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu下创建chrome隐身模式快捷方式">
+<meta property="og:url" content="http://weiyf.cn/2016/05/02/ubuntu下创建chrome隐身模式快捷方式/index.html">
+<meta property="og:site_name" content="夏末将至">
+<meta property="og:description" content="写在前面：本文以个人记录为主， 如有错漏， 请留言指出
+
+为什么需要隐身模式
+你懂的（坏笑）
+众所周知， 浏览器是有缓存的， 有时候缓存是一个好东西/usr/share/applications/，但是在一些特殊情况下，例如你发现你修改的东西怎么刷新都不生效，那么就有可能是浏览器缓存导致的，每次都要去浏览器设置清除浏览器缓存是一件多么痛苦的事情。当你为了调试而清除了缓存，当你想要翻你的浏览记录的">
+<meta property="og:updated_time" content="2016-05-02T03:18:44.588Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ubuntu下创建chrome隐身模式快捷方式">
+<meta name="twitter:description" content="写在前面：本文以个人记录为主， 如有错漏， 请留言指出
+
+为什么需要隐身模式
+你懂的（坏笑）
+众所周知， 浏览器是有缓存的， 有时候缓存是一个好东西/usr/share/applications/，但是在一些特殊情况下，例如你发现你修改的东西怎么刷新都不生效，那么就有可能是浏览器缓存导致的，每次都要去浏览器设置清除浏览器缓存是一件多么痛苦的事情。当你为了调试而清除了缓存，当你想要翻你的浏览记录的">
+  
+    <link rel="alternative" href="/atom.xml" title="夏末将至" type="application/atom+xml">
+  
+  <meta name="summary" content="&lt;blockquote&gt;
+&lt;p&gt;写在前面：&lt;br&gt;本文以个人记录为主， 如有错漏， 请留言指出&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;为什么需要隐身模式&quot;&gt;&lt;a href=&quot;#为什么需要隐身模式&quot; class=&quot;headerlink&quot; title=&quot;为什么需要隐身模式&quot;&gt;&lt;/a&gt;为什么需要隐身模式&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;你懂的（坏笑）&lt;/li&gt;
+&lt;li&gt;众所周知， 浏览器是有缓存的， 有时候缓存是一个好东西&lt;code&gt;/usr/share/applications/&lt;/code&gt;，但是在一些特殊情况下，例如你发现你修改的东西怎么刷新都不生效，那么就有可能是浏览器缓存导致的，每次都要去浏览器设置清除浏览器缓存是一件多么痛苦的事情。当你为了调试而清除了缓存，当你想要翻你的浏览记录的时候，发现记录不见了！不见了！（一般清除缓存会连浏览记录一并清除），所以chrome就有了隐身模式。&lt;/li&gt;
+&lt;/ol&gt;">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner">
+  <a href="javascript:;" class="header-icon waves-circle-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/logo.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">weiyf</h5>
+        <a href="mailto:undefined" title="admin@weiyf.cn" class="mail">admin@weiyf.cn</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav">
+    
+        <li class="waves-block">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            档案
+          </a>
+        </li>
+    
+        <li class="waves-block">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            标签
+          </a>
+        </li>
+    
+        <li class="waves-block">
+          <a href="/resume"  >
+            <i class="icon icon-lg icon-book"></i>
+            简历
+          </a>
+        </li>
+    
+        <li class="waves-block">
+          <a href="/"  >
+            <i class="icon icon-lg icon-link"></i>
+            友链
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>夏末将至 &copy; 2016</p>
+  <span id="busuanzi_container_site_pv">
+    您是本站第<span id="busuanzi_value_site_pv"></span>位访客
+</span>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-circle-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ubuntu下创建chrome隐身模式快捷方式</div>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">ubuntu下创建chrome隐身模式快捷方式</h1>
+    <h5 class="subtitle">2016-05-02</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="post-ubuntu下创建chrome隐身模式快捷方式" class="article article-type-post" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chrome/">chrome</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/快捷方式/">快捷方式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/缓存/">缓存</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/隐身模式/">隐身模式</a></li></ul>
+</div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#为什么需要隐身模式"><span class="post-toc-text">为什么需要隐身模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建快捷方式"><span class="post-toc-text">创建快捷方式</span></a></li></ol>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><blockquote>
+<p>写在前面：<br>本文以个人记录为主， 如有错漏， 请留言指出</p>
+</blockquote>
+<h2 id="为什么需要隐身模式"><a href="#为什么需要隐身模式" class="headerlink" title="为什么需要隐身模式"></a>为什么需要隐身模式</h2><ol>
+<li>你懂的（坏笑）</li>
+<li>众所周知， 浏览器是有缓存的， 有时候缓存是一个好东西<code>/usr/share/applications/</code>，但是在一些特殊情况下，例如你发现你修改的东西怎么刷新都不生效，那么就有可能是浏览器缓存导致的，每次都要去浏览器设置清除浏览器缓存是一件多么痛苦的事情。当你为了调试而清除了缓存，当你想要翻你的浏览记录的时候，发现记录不见了！不见了！（一般清除缓存会连浏览记录一并清除），所以chrome就有了隐身模式。</li>
+</ol>
+<a id="more"></a>
+<h2 id="创建快捷方式"><a href="#创建快捷方式" class="headerlink" title="创建快捷方式"></a>创建快捷方式</h2><p>创建快捷方式的方法有两种：</p>
+<ol>
+<li><p>利用文件浏览器找到路径：<code>/usr/share/applications/</code>， 找到chrome浏览器,将chrome浏览器拉到桌面上。</p>
+<blockquote>
+<p>这个操作会提示<code>复制“google-chrome.desktop”时出错</code>，点击取消即可，实际上已经拖拽出来了， 你点击显示更多细节，你会看到是删除文件时出错：权限不够</p>
+</blockquote>
+</li>
+<li><p>你也可以打开命令行执行以下命令：</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/share/applications/google-chrome.desktop ~/Desktop/</span><br><span class="line">``</span><br><span class="line">完成上面的任意一个步骤之后，我们会发现，复制出来的快捷方式不能用，是因为没有执行权限，现在我们要给它可执行权限。执行以下命令：</span><br><span class="line">```bash</span><br><span class="line">chmod +x ~/Desktop/google-chrome.desktop</span><br></pre></td></tr></table></figure>
+<p>然后你就会发现chrome的图标变正常了。但是双击打开只是普通的浏览器模式，不是我们想要的隐身模式，我们还需要一个操作，将它变成隐身模式。</p>
+<blockquote>
+<p>其他应用程序创建快捷方式的方法类似</p>
+</blockquote>
+<p>右键刚复制出来的快捷方式，点击属性,在命令一栏最后面加上以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--incognito</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注意前面有空格</p>
+</blockquote>
+<p>关闭属性框， 双击快捷方式之后你就会发现，打开的就是chrome的隐身模式，然后你就可以快乐的玩耍了。</p>
+</div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block prev">
+    
+  </div>
+  <div class="flex-col waves-block next">
+    
+      <a href="/2016/04/29/Linux服务器基本配置/" title="Linux服务器基本配置" id="post-next" class="post-nav-link">
+        <span class="article-nav-title">下一篇</span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    
+  </div>
+
+</nav>
+
+
+
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="ubuntu下创建chrome隐身模式快捷方式" data-title="ubuntu下创建chrome隐身模式快捷方式" data-url="http://weiyf.cn/2016/05/02/ubuntu下创建chrome隐身模式快捷方式/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"xiamojiangzhi"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-circle-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+<script type="text/javascript">
+var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_1258691893' style='display:none' %3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1258691893%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+
+
+
+</body>
+</html>

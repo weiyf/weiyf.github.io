@@ -7,29 +7,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="linux,ubuntu,服务器,ssh">
-  <meta name="description" content="linux服务器配置
-写在前面：该篇博客为个人记录为主，若有错漏，请留言提出。
+  <meta name="description" content="写在前面：该篇博客为个人记录为主，若有错漏，请留言提出。
 
 关于Linux服务器我们搭建博客或者搭建自己的网站或服务，都需要服务器的支持，然而服务器一般都不是使用我们所熟悉的windows系统（你也可以使用windows server系统），这篇博客以ubuntu系统为例说一下服务器的基本配置，其他linux的发行版也类似，只是稍有不同。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux服务器基本配置">
 <meta property="og:url" content="http://weiyf.cn/2016/04/29/Linux服务器基本配置/index.html">
 <meta property="og:site_name" content="夏末将至">
-<meta property="og:description" content="linux服务器配置
-写在前面：该篇博客为个人记录为主，若有错漏，请留言提出。
+<meta property="og:description" content="写在前面：该篇博客为个人记录为主，若有错漏，请留言提出。
 
 关于Linux服务器我们搭建博客或者搭建自己的网站或服务，都需要服务器的支持，然而服务器一般都不是使用我们所熟悉的windows系统（你也可以使用windows server系统），这篇博客以ubuntu系统为例说一下服务器的基本配置，其他linux的发行版也类似，只是稍有不同。">
-<meta property="og:updated_time" content="2016-04-30T09:33:20.455Z">
+<meta property="og:updated_time" content="2016-04-30T11:59:05.767Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux服务器基本配置">
-<meta name="twitter:description" content="linux服务器配置
-写在前面：该篇博客为个人记录为主，若有错漏，请留言提出。
+<meta name="twitter:description" content="写在前面：该篇博客为个人记录为主，若有错漏，请留言提出。
 
 关于Linux服务器我们搭建博客或者搭建自己的网站或服务，都需要服务器的支持，然而服务器一般都不是使用我们所熟悉的windows系统（你也可以使用windows server系统），这篇博客以ubuntu系统为例说一下服务器的基本配置，其他linux的发行版也类似，只是稍有不同。">
   
     <link rel="alternative" href="/atom.xml" title="夏末将至" type="application/atom+xml">
   
-  <meta name="summary" content="&lt;h1 id=&quot;linux服务器配置&quot;&gt;&lt;a href=&quot;#linux服务器配置&quot; class=&quot;headerlink&quot; title=&quot;linux服务器配置&quot;&gt;&lt;/a&gt;linux服务器配置&lt;/h1&gt;&lt;blockquote&gt;
+  <meta name="summary" content="&lt;blockquote&gt;
 &lt;p&gt;写在前面：&lt;br&gt;该篇博客为个人记录为主，若有错漏，请留言提出。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;关于Linux服务器&quot;&gt;&lt;a href=&quot;#关于Linux服务器&quot; class=&quot;headerlink&quot; title=&quot;关于Linux服务器&quot;&gt;&lt;/a&gt;关于Linux服务器&lt;/h2&gt;&lt;p&gt;我们搭建博客或者搭建自己的网站或服务，都需要服务器的支持，然而服务器一般都不是使用我们所熟悉的windows系统（你也可以使用windows server系统），这篇博客以ubuntu系统为例说一下服务器的基本配置，其他linux的发行版也类似，只是稍有不同。&lt;/p&gt;">
@@ -118,10 +115,6 @@
         </a>
         <div class="flex-col header-title ellipsis">Linux服务器基本配置</div>
         
-        <a href="javascript:;" class="header-icon waves-circle-light" id="menu-share">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
     </div>
 </header>
 <header class="content-header">
@@ -145,54 +138,17 @@
         <aside class="post-widget" id="post-widget">
 
           
-          <div " class="post-share" id="post-share">
-    <div class="tit">分享到：</div>
-    <ul class="reset share-icons" style="text-align: center;">
-      <li>
-        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-       <li>
-        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
-          豆
-        </a>
-      </li>  
-    </ul>
- </div>
-
-          
 
           
           <nav class="post-toc-wrap" id="post-toc">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#linux服务器配置"><span class="post-toc-text">linux服务器配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关于Linux服务器"><span class="post-toc-text">关于Linux服务器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解析主机ip（非必须）"><span class="post-toc-text">解析主机ip（非必须）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#root登录"><span class="post-toc-text">root登录</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#新建用户"><span class="post-toc-text">新建用户</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置ssh，禁止密码登录和root用户登录"><span class="post-toc-text">配置ssh，禁止密码登录和root用户登录</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#证书登录的步骤说明"><span class="post-toc-text">证书登录的步骤说明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#客户端生成私钥和公钥"><span class="post-toc-text">客户端生成私钥和公钥</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置服务端的ssh"><span class="post-toc-text">配置服务端的ssh</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#快速ssh登录"><span class="post-toc-text">快速ssh登录</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结"><span class="post-toc-text">总结</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关于Linux服务器"><span class="post-toc-text">关于Linux服务器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解析主机ip（非必须）"><span class="post-toc-text">解析主机ip（非必须）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#root登录"><span class="post-toc-text">root登录</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#新建用户"><span class="post-toc-text">新建用户</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置ssh，禁止密码登录和root用户登录"><span class="post-toc-text">配置ssh，禁止密码登录和root用户登录</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#证书登录的步骤说明"><span class="post-toc-text">证书登录的步骤说明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#客户端生成私钥和公钥"><span class="post-toc-text">客户端生成私钥和公钥</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置服务端的ssh"><span class="post-toc-text">配置服务端的ssh</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#快速ssh登录"><span class="post-toc-text">快速ssh登录</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结"><span class="post-toc-text">总结</span></a></li></ol>
           </nav>
           
         </aside>
 
         <div class="post-main">
 
-            <div class="post-content" id="post-content" itemprop="postContent"><h1 id="linux服务器配置"><a href="#linux服务器配置" class="headerlink" title="linux服务器配置"></a>linux服务器配置</h1><blockquote>
+            <div class="post-content" id="post-content" itemprop="postContent"><blockquote>
 <p>写在前面：<br>该篇博客为个人记录为主，若有错漏，请留言提出。</p>
 </blockquote>
 <h2 id="关于Linux服务器"><a href="#关于Linux服务器" class="headerlink" title="关于Linux服务器"></a>关于Linux服务器</h2><p>我们搭建博客或者搭建自己的网站或服务，都需要服务器的支持，然而服务器一般都不是使用我们所熟悉的windows系统（你也可以使用windows server系统），这篇博客以ubuntu系统为例说一下服务器的基本配置，其他linux的发行版也类似，只是稍有不同。</p>
@@ -249,6 +205,21 @@
 </div>
 
             
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block prev">
+    
+      <a href="/2016/05/02/ubuntu下创建chrome隐身模式快捷方式/" title="ubuntu下创建chrome隐身模式快捷方式" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">上一篇</span>
+      </a>
+    
+  </div>
+  <div class="flex-col waves-block next">
+    
+  </div>
+
+</nav>
+
 
 
             
@@ -290,51 +261,6 @@
   </main>
 <div class="mask" id="mask"></div>
 <a href="javascript:;" id="gotop" class="waves-circle-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-
-<script>
-var BLOG_SHARE = {
-    title: "Linux服务器基本配置",
-    pic: "/img/logo.jpg",
-    summary: document.getElementsByName('summary')[0].content,
-    url: "http://weiyf.cn/2016/04/29/Linux服务器基本配置/index.html"
-};
-</script>
-<div " class="global-share" id="global-share">
-    <div class="tit">分享到：</div>
-    <ul class="reset share-icons" style="text-align: center;">
-      <li>
-        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-       <li>
-        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
-          豆
-        </a>
-      </li>  
-    </ul>
- </div>
-
 
 
 <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
